@@ -18,6 +18,8 @@
   --font-size-md: 0.875rem;
   --font-size-lg: 1rem;
 
+  --border-radius: 8px;
+
   --text-color: var(--gray-100);
   --text-muted: var(--gray-300);
 }

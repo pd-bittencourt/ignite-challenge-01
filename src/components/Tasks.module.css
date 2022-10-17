@@ -1,0 +1,58 @@
+/* WRAPPER */
+.wrapper {
+  max-width: 750px;
+  margin: -25px auto 4rem;
+}
+
+/* INPUT */
+form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 8rem;
+}
+
+.todoInput {
+  box-sizing: border-box;
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-lg);
+  line-height: 1.25;
+  color: var(--text-color-muted);
+  background: var(--gray-500);
+  transition: all 0.2s;
+}
+
+.todoInput:focus {
+  border: none;
+  box-shadow: 0 0 0 2px var(--purple-dark);
+  outline: none;
+  color: var(--text-color);
+}
+
+.btnCreate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-100);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  background: var(--blue-dark);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 1rem 1.5rem;
+
+  transition: background 0.1s;
+}
+
+.btnCreate:hover {
+  background: var(--blue);
+}
+
+.btnCreate svg {
+  margin-left: 0.5rem;
+}
+
+/* TASK LIST */
