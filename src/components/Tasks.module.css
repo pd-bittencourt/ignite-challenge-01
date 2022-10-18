@@ -9,7 +9,7 @@ form {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-bottom: 8rem;
+  margin-bottom: 4rem;
 }
 
 .todoInput {
@@ -55,4 +55,39 @@ form {
   margin-left: 0.5rem;
 }
 
+/* TASKS COUNTER */
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.counter > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.counter .title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.badge {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-200);
+  background: var(--gray-400);
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--border-radius-full);
+}
+
+.tasksTotal {
+  color: var(--blue);
+}
+
+.tasksDone {
+  color: var(--purple);
+}
 /* TASK LIST */

@@ -19,6 +19,7 @@
   --font-size-lg: 1rem;
 
   --border-radius: 8px;
+  --border-radius-full: 999px;
 
   --text-color: var(--gray-100);
   --text-muted: var(--gray-300);
