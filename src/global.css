@@ -3,6 +3,7 @@
   --purple-dark: #5e60ce;
   --blue: #4ea8de;
   --blue-dark: #1e6f9f;
+  --danger: #e25858;
   --gray-700: #0d0d0d;
   --gray-600: #1a1a1a;
   --gray-500: #262626;
@@ -18,6 +19,7 @@
   --font-size-md: 0.875rem;
   --font-size-lg: 1rem;
 
+  --border-radius-sm: 4px;
   --border-radius: 8px;
   --border-radius-full: 999px;
 

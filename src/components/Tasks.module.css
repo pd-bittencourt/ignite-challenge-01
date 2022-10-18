@@ -93,3 +93,8 @@ form {
 }
 
 /* TASK LIST */
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
