@@ -3,11 +3,17 @@ import { Trash } from "phosphor-react";
 import styles from "./Task.module.css";
 
 export interface TaskProps {
+  id: number;
   title: string;
   isComplete: boolean;
+  onDeleteTask: (id: number) => void;
 }
 
-export function Task({ title, isComplete }: TaskProps) {
+export function Task({ id, title, isComplete, onDeleteTask }: TaskProps) {
+  function handleDeleteTask() {
+    onDeleteTask(id);
+  }
+
   return (
     <li className={styles.taskContainer}>
       <div>
@@ -18,7 +24,7 @@ export function Task({ title, isComplete }: TaskProps) {
 
         <p>{title}</p>
       </div>
-      <button type="button">
+      <button type="button" onClick={handleDeleteTask}>
         <Trash size={16} />
       </button>
     </li>

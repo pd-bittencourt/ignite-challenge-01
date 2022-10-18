@@ -3,10 +3,6 @@ import { PlusCircle } from "phosphor-react";
 import { Task, TaskProps } from "./Task";
 import { ChangeEvent, FormEvent, InputHTMLAttributes, useState } from "react";
 
-interface TaskListProps extends TaskProps {
-  id: number;
-}
-
 const TaskList = [
   {
     id: 1,
@@ -27,13 +23,11 @@ const TaskList = [
 ];
 
 export function Tasks() {
-  const [tasks, setTasks] = useState<TaskListProps[]>([]);
+  const [tasks, setTasks] = useState<TaskProps[]>([]);
   const [newTaskText, setNewTaskText] = useState("");
 
   const totalTasks = tasks.length;
-  const tasksDone = tasks.filter(task => {
-    return task.isComplete;
-  });
+  const tasksDone = tasks.filter(task => task.isComplete);
   const totalTasksDone = tasksDone.length;
 
   function handleCreateNewTask(event: FormEvent) {
@@ -43,6 +37,9 @@ export function Tasks() {
       id: Math.random(),
       title: newTaskText,
       isComplete: false,
+      onDeleteTask: () => {
+        deleteTask;
+      },
     };
 
     setTasks([...tasks, newTask]);
@@ -51,6 +48,11 @@ export function Tasks() {
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     setNewTaskText(event.target.value);
+  }
+
+  function deleteTask(id: number) {
+    const filteredTasks = tasks.filter(task => task.id !== id);
+    setTasks(filteredTasks);
   }
 
   return (
@@ -84,9 +86,11 @@ export function Tasks() {
         {tasks.map(list => {
           return (
             <Task
+              id={list.id}
               key={list.id}
               title={list.title}
               isComplete={list.isComplete}
+              onDeleteTask={deleteTask}
             />
           );
         })}
