@@ -43,6 +43,7 @@ form {
   border: none;
   border-radius: var(--border-radius);
   padding: 1rem 1.5rem;
+  cursor: pointer;
 
   transition: background 0.1s;
 }
@@ -90,4 +91,5 @@ form {
 .tasksDone {
   color: var(--purple);
 }
+
 /* TASK LIST */
