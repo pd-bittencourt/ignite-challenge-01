@@ -56,21 +56,21 @@ form {
   margin-left: 0.5rem;
 }
 
-/* TASKS COUNTER */
-.counter {
+/* TASKS PROGRESS */
+.progress {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
 
-.counter > div {
+.progress > div {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.counter .title {
+.progress .title {
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
 }
