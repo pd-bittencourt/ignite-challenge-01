@@ -2,7 +2,7 @@ import { Trash } from "phosphor-react";
 
 import styles from "./Task.module.css";
 
-interface TaskProps {
+export interface TaskProps {
   title: string;
   isComplete: boolean;
 }
