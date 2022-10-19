@@ -92,6 +92,30 @@ form {
   color: var(--purple);
 }
 
+/* EMPTY */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 0;
+}
+
+.empty img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.empty p {
+  color: var(--text-muted);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+.empty span {
+  font-weight: var(--font-weight-regular);
+}
+
 /* TASK LIST */
 .taskList {
   display: flex;

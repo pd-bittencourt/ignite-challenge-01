@@ -7,22 +7,37 @@ export interface TaskProps {
   title: string;
   isComplete: boolean;
   onDeleteTask: (id: number) => void;
+  onToggleTask: (id: number) => void;
 }
 
-export function Task({ id, title, isComplete, onDeleteTask }: TaskProps) {
+export function Task({
+  id,
+  title,
+  isComplete,
+  onDeleteTask,
+  onToggleTask,
+}: TaskProps) {
   function handleDeleteTask() {
     onDeleteTask(id);
+  }
+
+  function handleToggleTodo() {
+    onToggleTask(id);
   }
 
   return (
     <li className={styles.taskContainer}>
       <div>
         <div className={styles.round}>
-          <input type="checkbox" readOnly checked={isComplete} />
+          <input
+            type="checkbox"
+            readOnly
+            checked={isComplete}
+            onClick={handleToggleTodo}
+          />
           <label htmlFor="checkbox"></label>
         </div>
-
-        <p>{title}</p>
+        <p className={isComplete ? "completed" : ""}>{title}</p>
       </div>
       <button type="button" onClick={handleDeleteTask}>
         <Trash size={16} />

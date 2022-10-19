@@ -1,26 +1,10 @@
 import styles from "./Tasks.module.css";
 import { PlusCircle } from "phosphor-react";
 import { Task, TaskProps } from "./Task";
-import { ChangeEvent, FormEvent, InputHTMLAttributes, useState } from "react";
 
-const TaskList = [
-  {
-    id: 1,
-    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    isComplete: false,
-  },
-  {
-    id: 2,
-    title:
-      "Inventore quod soluta nulla, officiis, accusamus dignissimos ut libero explicabo porro, iure tenetur pariatur voluptate?",
-    isComplete: true,
-  },
-  {
-    id: 3,
-    title: "Accusamus libero nisi illum minus error eligendi!",
-    isComplete: false,
-  },
-];
+import { ChangeEvent, FormEvent, useState } from "react";
+
+import Clipboard from "../assets/icon-clipboard.svg";
 
 export function Tasks() {
   const [tasks, setTasks] = useState<TaskProps[]>([]);
@@ -38,9 +22,14 @@ export function Tasks() {
       title: newTaskText,
       isComplete: false,
       onDeleteTask: () => {
-        deleteTask;
+        onDeleteTask;
+      },
+      onToggleTask: () => {
+        onToggleTask;
       },
     };
+
+    if (newTaskText === "") return;
 
     setTasks([...tasks, newTask]);
     setNewTaskText("");
@@ -50,9 +39,18 @@ export function Tasks() {
     setNewTaskText(event.target.value);
   }
 
-  function deleteTask(id: number) {
+  function onDeleteTask(id: number) {
     const filteredTasks = tasks.filter(task => task.id !== id);
     setTasks(filteredTasks);
+  }
+
+  function onToggleTask(id: number) {
+    const newTasks = tasks.map(task =>
+      task.id === id ? { ...task, isComplete: !task.isComplete } : task
+    );
+
+    setTasks(newTasks);
+    console.log(tasks);
   }
 
   return (
@@ -82,6 +80,15 @@ export function Tasks() {
           </div>
         </div>
       </div>
+      {tasks.length === 0 && (
+        <div className={styles.empty}>
+          <img src={Clipboard} alt="clipboard icon" />
+          <p>
+            Você ainda não tem tarefas cadastradas <br />
+            <span>Crie tarefas e organize seus itens a fazer</span>
+          </p>
+        </div>
+      )}
       <ul className={styles.taskList}>
         {tasks.map(list => {
           return (
@@ -90,7 +97,8 @@ export function Tasks() {
               key={list.id}
               title={list.title}
               isComplete={list.isComplete}
-              onDeleteTask={deleteTask}
+              onDeleteTask={onDeleteTask}
+              onToggleTask={onToggleTask}
             />
           );
         })}
